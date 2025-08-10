@@ -1,0 +1,463 @@
+/* Static gradient background for entire page */
+body {
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    animation: gradientPulse 4s ease-in-out infinite;
+    font-family: 'Lora', serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Pulse brightness animation */
+@keyframes gradientPulse {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.25); }
+}
+
+
+/* Transparent navbar so gradient shows through */
+.navbar {
+    background-color: transparent !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Navbar link style */
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* Hover: Gold + Bold */
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #FFD700;
+    font-weight: 700;
+}
+
+/* Logo sizing */
+.logo {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar toggler (three dots) */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0.25rem;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Custom gold three-line icon */
+.navbar-toggler-icon {
+    background-image: none !important;
+    width: 20px;
+    height: 2px;
+    background-color: gold;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: gold;
+    left: 0;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -6px;
+}
+
+.navbar-toggler-icon::after {
+    top: 6px;
+}
+
+/* Side menu for small screens */
+@media (max-width: 991px) {
+    .side-menu {
+        position: fixed;
+        top: 0;
+        right: -250px; /* hidden initially */
+        width: 250px;
+        height: 100%;
+        background: rgba(20, 50, 65, 0.95); /* slightly darker than page bg */
+        padding-top: 60px;
+        transition: right 0.4s ease;
+        z-index: 1050;
+    }
+
+    .side-menu.show {
+        right: 0; /* slide in */
+    }
+
+    .side-menu .nav-link {
+        color: white;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background-color 0.3s ease, font-weight 0.3s ease;
+    }
+
+    .side-menu .nav-link:hover {
+        background-color: rgba(255, 215, 0, 0.15); /* gold tint */
+        font-weight: 700;
+        color: #FFD700;
+    }
+}
+
+
+
+/* Overlay for side menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* semi-transparent black */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1040; /* below menu, above page */
+}
+
+/* Show overlay when active */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    text-align: left;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* Premium hero text */
+.hero-text h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+}
+
+.hero-text .line1 {
+    color: #E6FFFA;
+}
+
+.hero-text .line2 {
+    color: #B2F5EA;
+}
+
+.hero-para {
+    margin-top: 20px;
+    max-width: 700px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 150;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Stats Section */
+.stats-section {
+    background: transparent;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    animation: none !important;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Stat Cards */
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px 20px;
+    margin: 15px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+    background: rgba(0, 106, 255, 0.15);
+}
+
+/* Material Icons */
+.material-symbols-outlined {
+    font-size: 64px; /* Adjusted for balance */
+    color: #B2F5EA;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+    height: auto; /* Fixed invalid value */
+    width: auto;  /* Fixed invalid value */
+}
+
+/* Number and Label */
+.stat-number {
+    font-size: 28px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: white;
+    margin-bottom: 8px;
+    display: block; /* Stack vertically */
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 22px;
+    font-weight: 500;
+    color: #B2F5EA;
+    margin: 0;
+    text-align: center;
+}
+
+/* Responsive Image */
+.img-fluid {
+  max-width: 400px;  /* Limits image width on larger screens */
+  width: 100%;       /* Makes image scale down with container */
+  height: auto;      /* Maintains aspect ratio */
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+    .hero-para {
+        font-size: 1.1rem;
+        max-width: 100%;
+    }
+    .material-symbols-outlined {
+        font-size: 48px;
+    }
+    .stat-number {
+        font-size: 22px;
+    }
+    .stat-label {
+        font-size: 18px;
+    }
+    .stat-card {
+        max-width: 100%;
+        padding: 20px 15px;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .hero-para {
+        font-size: 1rem;
+    }
+    .material-symbols-outlined {
+        font-size: 40px;
+    }
+    .stat-number {
+        font-size: 20px;
+    }
+    .stat-label {
+        font-size: 16px;
+    }
+    .stat-card {
+        padding: 15px 10px;
+        margin: 8px auto;
+    }
+}
+
+
+@media (max-width: 800px) {
+  /* Hide the entire image column */
+  .col-12.col-md-5 {
+    display: none !important;
+  }
+  
+  /* Or alternatively, hide just the image */
+  /*
+  .col-12.col-md-5 img {
+    display: none !important;
+  }
+  */
+}
+
+
+#typewriter {
+  white-space: pre-wrap; /* preserve line breaks */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 150;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: white;
+  min-height: 6rem; /* keep space to avoid jumping */
+  border-right: none; /* no cursor */
+}
+.btn-enroll {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;               /* bolder font */
+  font-size: 1.3rem;
+  color: #2c2c2c;                /* darker text for contrast */
+  background: linear-gradient(135deg, #E6C15A, #C49B27);  /* softer, muted yellow */
+  border: 3px solid #C49B27;     /* matching muted yellow border */
+  padding: 14px 48px;
+  border-radius: 8px;
+  width: automatic;
+  max-width: 320px;
+  box-shadow: 0 5px 15px rgba(196, 155, 39, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5rem !important;              /* increased spacing above */
+}
+
+.btn-enroll:hover,
+.btn-enroll:focus {
+  background: linear-gradient(135deg, #C49B27, #A6801F);
+  border-color: #A6801F;
+  box-shadow: 0 8px 25px rgba(166, 128, 31, 0.6);
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-enroll:active {
+  background: linear-gradient(135deg, #A6801F, #8F6D1B);
+  border-color: #8F6D1B;
+  box-shadow: 0 3px 8px rgba(143, 109, 27, 0.7);
+}
+
+.typewriter-container {
+  height: 13rem;          /* Fixed height to hold full paragraph */
+  overflow: hidden;       /* Hide overflow so text won’t push down */
+  position: relative;
+}
+
+/* Optional: keep paragraph styles */
+.hero-para {
+  margin: 0;
+  white-space: pre-wrap; /* preserve line breaks */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 150;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+#courses {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #b0b0b0, #7a7a7a); /* medium-light gray gradient */
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.course-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f8f8; /* light card background for contrast */
+  color: #222;               /* dark text */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 49, 83, 0.3); /* subtle prussian blue shadow */
+}
+
+
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #003153; /* prussian blue title */
+}
+
+.card-text {
+  color: #444;
+  font-size: 1rem;
+}
+
+.btn-course {
+  background: linear-gradient(135deg, #003153, #001f2d); /* prussian blue gradient */
+  color: #e6e6e6;
+  font-weight: 600;
+  padding: 10px 0;         /* vertical padding only */
+  border-radius: 8px;      /* reduced from 50px */
+  border: none;
+  width: 100%;             /* fill full card width */
+  max-width: 100%;
+  text-align: center;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  display: inline-block;
+}
+
+
+.btn-course:hover,
+.btn-course:focus {
+  background: linear-gradient(135deg, #001f2d, #000d16);
+  box-shadow: 0 8px 20px rgba(0, 49, 83, 0.5);
+  outline: none;
+  text-decoration: none;
+}
+.course-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.course-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 300px; /* or any fixed height you want */
+  object-fit: cover;
+  border-top-left-radius: 0.25rem; /* match bootstrap card */
+  border-top-right-radius: 0.25rem;
+}
+
+
